@@ -1,18 +1,82 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Javascript Racer</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Racer Web3</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
+    <style></style>
+</head>
+<body>
+    <audio id="music" style="display:none;">
+        <source src="music/racer.ogg" type="audio/ogg">
+        <source src="music/racer.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="container">
+        <header>
+            <h1>Retro Racer Web3</h1>
+            <p>Experience the thrill of retro racing with a modern Web3 twist!</p>
+        </header>
 
-<body> 
+        <div class="web3-login">
+            <button class="btn" id="connect-wallet">Connect Web3 Wallet</button>
+        </div>
 
-  <ul>
-    <li><a href='v1.straight.html'>Version 1 - Straight</a></li>
-    <li><a href='v2.curves.html'>Version 2 - Curves</a></li>
-    <li><a href='v3.hills.html'>Version 3 - Hills</a></li>
-    <li><a href='v4.final.html'>Version 4 - Final</a></li>
-  </ul>
+        <div class="game-container">
+            <div id="hud">
+                <div id="speed_value">Speed</div>
+                <div id="current_lap_time_value">Current Lap Time</div>
+                <div id="last_lap_time_value">Last Lap Time</div>
+                <div id="fast_lap_time_value">Fastest Lap Time</div>
+                <button id="mute">Mute</button>
+            </div>
+            
 
-</body> 
+            
+            <canvas id="game-canvas" style="display: none;"></canvas>
+            <div id="game-placeholder">
+                Game will appear here after Web3 login
+            </div>
+        </div>
+
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>0x1234...abcd</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0x5678...efgh</td>
+                        <td>9,500</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>0x90ab...ijkl</td>
+                        <td>9,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="stats.js"></script>
+    <script src="web3Integration.js"></script>
+    <script src="main.js"></script>
+    <script src="game/common.js"></script>
+    <script src="game/game.js"></script>
+    
+</body>
 </html>

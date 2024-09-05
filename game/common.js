@@ -75,6 +75,23 @@ var Util = {
     var min2 = x2 - (w2*half);
     var max2 = x2 + (w2*half);
     return ! ((max1 < min2) || (min1 > max2));
+  },
+
+  loadImages: function(names, callback) {
+    var result = [];
+    var count  = names.length;
+  
+    var onload = function() {
+      if (--count == 0)
+        callback(result);
+    };
+  
+    for(var n = 0 ; n < names.length ; n++) {
+      var name = names[n];
+      result[n] = document.createElement('img');
+      Dom.on(result[n], 'load', onload);
+      result[n].src = "images/" + name + ".png";
+    }
   }
 
 }
@@ -175,8 +192,7 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
 
   //---------------------------------------------------------------------------
 
-  stats: function(parentId, id) { // construct mr.doobs FPS counter - along with friendly good/bad/ok message box
-
+  stats: function(parentId, id) {
     var result = new Stats();
     result.domElement.id = id || 'stats';
     Dom.get(parentId).appendChild(result.domElement);
