@@ -52,7 +52,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Original game by [Jake Gordon](https://github.com/jakesgordon)
-- Web3 integration and modifications by [Your Name/Team]
 
 ## Contact
 
